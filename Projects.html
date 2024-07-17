@@ -51,10 +51,21 @@
         color: #fff;
         padding: 10px;
         cursor: move;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
     }
 
     .title-bar .title {
         margin: 0;
+    }
+
+    .title-bar .icon {
+        width: 20px;
+        height: 20px;
+        background-image: url('https://cdn-icons-png.freepik.com/512/561/561739.png');
+        background-size: cover;
+        background-position: center;
     }
 
     .content {
@@ -88,6 +99,7 @@
 <body>
     <div class="window">
         <div class="title-bar">
+            <div class="icon"></div>
             <div class="title">Projects</div>
             <div class="close-button" onclick="closeWindow()"></div>
         </div>
