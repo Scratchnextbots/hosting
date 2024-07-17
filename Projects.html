@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Projects</title>
+<style>
+    body {
+        background-image: url('https://static.miraheze.org/windowswallpaperwiki/2/24/Clouds_%28Windows_95%29.png');
+        background-size: cover;
+        background-position: center;
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        overflow: hidden;
+    }
+
+    body::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url('https://static.miraheze.org/windowswallpaperwiki/2/24/Clouds_%28Windows_95%29.png');
+        background-size: cover;
+        background-position: center;
+        filter: blur(5px); /* Efecto de blur aplicado al fondo */
+    }
+
+    .window {
+        position: relative;
+        z-index: 1;
+        width: 400px;
+        height: 300px;
+        background-image: url('https://i.pinimg.com/originals/66/9f/9e/669f9e9981a7cb4bfe804c72fb79dbdc.gif');
+        background-size: cover;
+        background-position: center;
+        border: 1px solid #ccc;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        border-radius: 5px;
+        overflow: hidden;
+    }
+
+    .title-bar {
+        background-color: #0078d7;
+        color: #fff;
+        padding: 10px;
+        cursor: move;
+    }
+
+    .title-bar .title {
+        margin: 0;
+    }
+
+    .content {
+        padding: 20px;
+        color: #fff; /* Texto en blanco */
+        text-align: center;
+        line-height: 1.6;
+    }
+
+    .close-button {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        width: 20px;
+        height: 20px;
+        background-color: #f44336;
+        border-radius: 50%;
+        cursor: pointer;
+    }
+
+    .close-button:before {
+        content: '×';
+        font-size: 16px;
+        color: #fff;
+        display: block;
+        line-height: 20px;
+        text-align: center;
+    }
+</style>
+</head>
+<body>
+    <div class="window">
+        <div class="title-bar">
+            <div class="title">Projects</div>
+            <div class="close-button" onclick="closeWindow()"></div>
+        </div>
+        <div class="content">
+            <p>🌴 #Projects :</p>
+            <ul style="list-style-type: none; padding-left: 0;">
+                <li>💻 C++ coding and other programming languages</li>
+                <li>🎮 Creating virtual games (Windows only)</li>
+                <li>🌐 HTML pages</li>
+                <li>🪩 Gdi with C++</li>
+                <li>💾 And other fun things! 😻</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        // Función para cerrar la ventana y volver atrás en la historia del navegador
+        function closeWindow() {
+            var windowElement = document.querySelector('.window');
+            windowElement.style.display = 'none';
+            history.back(); // Retroceder en la historia del navegador
+        }
+    </script>
+</body>
+</html>
