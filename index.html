@@ -1,40 +1,59 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi Página Web</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            margin: 20px;
-        }
-        h1 {
-            color: #333;
-        }
-        p {
-            color: #666;
-        }
-        a {
-            color: #007bff;
-            text-decoration: none;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-    </style>
-</head>
-<body>
-    <header>
-        <h1>Bienvenido a Mi Página Web</h1>
-    </header>
-    <main>
-        <p>Esta es una página de ejemplo.</p>
-        <p>Puedes <a href="https://www.google.com" target="_blank">visitar Google</a>.</p>
-    </main>
-    <footer>
-        <p>&copy; 2024 Moxeration. Todos los derechos reservados.</p>
-    </footer>
-</body>
-</html>
+body {
+    background-image: url('background2.png'); /* Cambiar a background2.jpg si es necesario */
+    background-size: cover;
+    background-position: center;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+    backdrop-filter: blur(8px); /* Efecto de desenfoque */
+}
+
+.window {
+    background-color: #f4f4f4; /* Color de fondo de la ventana */
+    width: 80%;
+    max-width: 600px;
+    padding: 20px;
+    border: 1px solid #999; /* Borde de la ventana */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Sombra */
+}
+
+.window-header {
+    background-color: #dcdcdc; /* Color de fondo del encabezado */
+    padding: 8px; /* Espaciado interno del encabezado */
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    border-bottom: 1px solid #bbb; /* Borde inferior del encabezado */
+}
+
+.window-title {
+    font-size: 1.2rem; /* Tamaño de fuente del título */
+    font-weight: bold; /* Negrita del título */
+    color: #333; /* Color del texto del título */
+}
+
+.window-buttons {
+    display: flex; /* Mostrar los botones en línea */
+    gap: 8px; /* Espaciado entre botones */
+    margin-right: -8px; /* Ajuste para alinear a la derecha */
+}
+
+.window-button {
+    width: 20px; /* Ancho del botón */
+    height: 20px; /* Altura del botón */
+    border-radius: 3px; /* Borde redondeado */
+    cursor: pointer; /* Cambio de cursor */
+    background-color: #ccc; /* Color de fondo base del botón */
+}
+
+.window-button.minimize {
+    background-color: #6699cc; /* Color de botón minimizar */
+}
+
+.window-button.close {
+    background-color: #cc3333; /* Color de botón cerrar */
+}
