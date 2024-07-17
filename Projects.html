@@ -4,6 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Projects</title>
+<!-- Agregar el icono para la pestaña del navegador -->
+<link rel="icon" href="https://cdn-icons-png.freepik.com/512/561/561739.png" type="image/png">
 <style>
     body {
         background-image: url('https://static.miraheze.org/windowswallpaperwiki/2/24/Clouds_%28Windows_95%29.png');
@@ -52,20 +54,21 @@
         padding: 10px;
         cursor: move;
         display: flex;
-        justify-content: space-between;
+        justify-content: flex-start;
         align-items: center;
-    }
-
-    .title-bar .title {
-        margin: 0;
     }
 
     .title-bar .icon {
         width: 20px;
         height: 20px;
-        background-image: url('https://cdn-icons-png.freepik.com/512/561/561739.png');
+        background-image: url('https://cdn-icons-png.freepik.com/512/561/561739.png'); /* Nuevo icono */
         background-size: cover;
         background-position: center;
+        margin-right: 10px;
+    }
+
+    .title-bar .title {
+        margin: 0;
     }
 
     .content {
