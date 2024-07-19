@@ -9,27 +9,38 @@
             const username = document.getElementById('username').value;
             const password = document.getElementById('password').value;
 
-            const response = await fetch('Userp.txt');
-            const data = await response.text();
-
-            const users = data.split('\n').map(line => line.trim());
-
-            let valid = false;
-
-            for (const user of users) {
-                const [storedUser, storedPassword] = user.split(':');
-                if (storedUser === username && storedPassword === password) {
-                    valid = true;
-                    break;
+            try {
+                const response = await fetch('Userp.txt');
+                if (!response.ok) {
+                    throw new Error('Error al cargar el archivo de usuarios');
                 }
-            }
 
-            if (valid) {
-                alert('Inicio de sesión exitoso');
-                // Redirigir a otra página o realizar otra acción
-                window.location.href = 'bienvenido.html';
-            } else {
-                alert('Usuario o contraseña incorrectos');
+                const data = await response.text();
+                console.log('Contenido de Userp.txt:', data);  // Log para depuración
+
+                const users = data.split('\n').map(line => line.trim());
+
+                let valid = false;
+
+                for (const user of users) {
+                    const [storedUser, storedPassword] = user.split(':');
+                    console.log(`Verificando usuario: ${storedUser}, contraseña: ${storedPassword}`);  // Log para depuración
+                    if (storedUser === username && storedPassword === password) {
+                        valid = true;
+                        break;
+                    }
+                }
+
+                if (valid) {
+                    alert('Inicio de sesión exitoso');
+                    // Redirigir a otra página o realizar otra acción
+                    window.location.href = 'bienvenido.html';
+                } else {
+                    alert('Usuario o contraseña incorrectos');
+                }
+            } catch (error) {
+                console.error('Error durante el inicio de sesión:', error);
+                alert('Error al procesar la solicitud');
             }
         }
     </script>
