@@ -1,0 +1,127 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>readme.md</title>
+<!-- Agregar el icono para la pestaña del navegador -->
+<link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/3/35/Information_icon.svg" type="image/png">
+<style>
+    body {
+        background-image: url('https://i.pinimg.com/originals/c5/9d/35/c59d35ef6969b132332462626631c20d.gif');
+        background-size: cover;
+        background-position: center;
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        overflow: hidden;
+    }
+
+
+    body::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5); /* Fondo negro semi-transparente */
+        backdrop-filter: blur(10px); /* Efecto de desenfoque */
+    }
+
+
+    .window {
+        position: relative;
+        z-index: 1;
+        width: 600px; /* Tamaño de la ventana */
+        height: 400px; /* Tamaño de la ventana */
+        background-color: rgba(255, 255, 255, 0.8); /* Fondo de la ventana transparente */
+        border: 1px solid #ccc;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        border-radius: 5px;
+        overflow: hidden;
+        padding: 20px;
+    }
+
+
+    .title-bar {
+        background-color: #0078d7;
+        color: #fff;
+        padding: 10px;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+    }
+
+
+    .title-bar .icon {
+        width: 20px;
+        height: 20px;
+        margin-right: 10px;
+    }
+
+
+    .title-bar .title {
+        margin: 0;
+    }
+
+
+    .content {
+        text-align: center;
+        line-height: 1.6;
+    }
+
+
+    .close-button {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        width: 20px;
+        height: 20px;
+        background-color: #f44336;
+        border-radius: 50%;
+        cursor: pointer;
+    }
+
+
+    .close-button:before {
+        content: '×';
+        font-size: 16px;
+        color: #fff;
+        display: block;
+        line-height: 20px;
+        text-align: center;
+    }
+</style>
+</head>
+<body>
+    <div class="window">
+        <div class="title-bar">
+            <div class="icon">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/3/35/Information_icon.svg" alt="Info" width="20" height="20">
+            </div>
+            <div class="title">readme.md</div>
+            <div class="close-button" onclick="closeWindow()"></div>
+        </div>
+        <div class="content">
+            <h1>readme.md</h1>
+            <p>This is the readme file for the project. Here you can find information about the project, how to use it, and other relevant details.</p>
+            <p><strong>For more info visit:</strong> <a href="info.html" style="text-decoration: underline; color: #0078d7;">Info Page</a></p>
+        </div>
+    </div>
+
+
+    <script>
+        // Función para cerrar la ventana y volver atrás en la historia del navegador
+        function closeWindow() {
+            var windowElement = document.querySelector('.window');
+            windowElement.style.display = 'none';
+            history.back(); // Retroceder en la historia del navegador
+        }
+    </script>
+</body>
+</html>
