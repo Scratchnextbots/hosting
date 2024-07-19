@@ -3,56 +3,89 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inicio de Sesión</title>
-    <script>
-        async function login() {
-            const username = document.getElementById('username').value;
-            const password = document.getElementById('password').value;
-
-            try {
-                const response = await fetch('Userp.txt');
-                if (!response.ok) {
-                    throw new Error('Error al cargar el archivo de usuarios');
-                }
-
-                const data = await response.text();
-                console.log('Contenido de Userp.txt:', data);  // Log para depuración
-
-                const users = data.split('\n').map(line => line.trim());
-
-                let valid = false;
-
-                for (const user of users) {
-                    const [storedUser, storedPassword] = user.split(':');
-                    console.log(`Verificando usuario: ${storedUser}, contraseña: ${storedPassword}`);  // Log para depuración
-                    if (storedUser === username && storedPassword === password) {
-                        valid = true;
-                        break;
-                    }
-                }
-
-                if (valid) {
-                    alert('Inicio de sesión exitoso');
-                    // Redirigir a otra página o realizar otra acción
-                    window.location.href = 'bienvenido.html';
-                } else {
-                    alert('Usuario o contraseña incorrectos');
-                }
-            } catch (error) {
-                console.error('Error durante el inicio de sesión:', error);
-                alert('Error al procesar la solicitud');
-            }
+    <title>Login Bonito</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to right, #ff7e5f, #feb47b);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
         }
-    </script>
+        .login-container {
+            background: white;
+            padding: 2em;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .login-container h1 {
+            margin-bottom: 1em;
+            color: #333;
+        }
+        .login-container input[type="text"],
+        .login-container input[type="password"] {
+            width: 100%;
+            padding: 0.5em;
+            margin-bottom: 1em;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .login-container button {
+            padding: 0.5em 2em;
+            border: none;
+            border-radius: 5px;
+            background: #ff7e5f;
+            color: white;
+            cursor: pointer;
+        }
+        .login-container button:hover {
+            background: #feb47b;
+        }
+        .error {
+            color: red;
+            margin-top: 1em;
+        }
+    </style>
 </head>
 <body>
-    <h2>Inicio de Sesión</h2>
-    <form onsubmit="event.preventDefault(); login();">
-        <label for="username">Usuario:</label>
-        <input type="text" id="username" required><br><br>
-        <label for="password">Contraseña:</label>
-        <input type="password" id="password" required><br><br>
-        <input type="submit" value="Iniciar Sesión">
+
+<div class="login-container">
+    <h1>Iniciar Sesión</h1>
+    <form id="loginForm" onsubmit="return validateLogin(event)">
+        <input type="text" id="username" placeholder="Usuario" required>
+        <input type="password" id="password" placeholder="Contraseña" required>
+        <button type="submit">Ingresar</button>
+        <div class="error" id="errorMessage"></div>
     </form>
+</div>
+
+<script>
+    function validateLogin(event) {
+        event.preventDefault();
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+        const errorMessage = document.getElementById('errorMessage');
+
+        // Usuarios y contraseñas predefinidos
+        const validCredentials = [
+            { user: 'usuario1', pass: 'contraseña1' },
+            { user: 'usuario2', pass: 'contraseña2' },
+            // Añadir más usuarios y contraseñas aquí
+        ];
+
+        const isValid = validCredentials.some(cred => cred.user === username && cred.pass === password);
+
+        if (isValid) {
+            alert('Inicio de sesión exitoso');
+            // Redirigir o realizar alguna acción aquí
+        } else {
+            errorMessage.textContent = 'Usuario o contraseña incorrectos';
+        }
+    }
+</script>
+
 </body>
 </html>
