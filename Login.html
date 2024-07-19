@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -9,16 +9,12 @@
             const username = document.getElementById('username').value;
             const password = document.getElementById('password').value;
 
-
             const response = await fetch('Userp.txt');
             const data = await response.text();
 
-
             const users = data.split('\n').map(line => line.trim());
 
-
             let valid = false;
-
 
             for (const user of users) {
                 const [storedUser, storedPassword] = user.split(':');
@@ -27,7 +23,6 @@
                     break;
                 }
             }
-
 
             if (valid) {
                 alert('Inicio de sesión exitoso');
