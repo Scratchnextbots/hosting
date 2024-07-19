@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Bonito</title>
+    <title>Login 🔐</title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -67,11 +67,11 @@
 <div class="background-blur"></div>
 
 <div class="login-container">
-    <h1>Iniciar Sesión</h1>
+    <h1>Login</h1>
     <form id="loginForm" onsubmit="return validateLogin(event)">
-        <input type="text" id="username" placeholder="Usuario" required>
-        <input type="password" id="password" placeholder="Contraseña" required>
-        <button type="submit">Ingresar</button>
+        <input type="text" id="username" placeholder="Username" required>
+        <input type="password" id="password" placeholder="Password" required>
+        <button type="submit">Login</button>
         <div class="error" id="errorMessage"></div>
     </form>
 </div>
@@ -83,20 +83,19 @@
         const password = document.getElementById('password').value;
         const errorMessage = document.getElementById('errorMessage');
 
-        // Usuarios y contraseñas predefinidos
+        // Predefined users and passwords
         const validCredentials = [
-            { user: 'usuario1', pass: 'contraseña1' },
-            { user: 'usuario2', pass: 'contraseña2' },
-            // Añadir más usuarios y contraseñas aquí
+            { user: 'user1', pass: 'password1' },
+            { user: 'user2', pass: 'password2' },
+            // Add more users and passwords here
         ];
 
         const isValid = validCredentials.some(cred => cred.user === username && cred.pass === password);
 
         if (isValid) {
-            alert('Inicio de sesión exitoso');
-            // Redirigir o realizar alguna acción aquí
+            window.location.href = 'index.html'; // Redirect to index.html on successful login
         } else {
-            errorMessage.textContent = 'Usuario o contraseña incorrectos';
+            errorMessage.textContent = 'Invalid username or password';
         }
     }
 </script>
