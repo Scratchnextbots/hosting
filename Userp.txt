@@ -1,2 +1,1 @@
-usuario1:contraseña1
-usuario2:contraseña2
+user12:test
