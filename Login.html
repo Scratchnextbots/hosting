@@ -90,11 +90,11 @@
             // Add more users and passwords here
         ];
 
-        const isValid = validCredentials.some(cred => cred.user === username && cred.pass === password);
+        const user = validCredentials.find(cred => cred.user === username && cred.pass === password);
 
-        if (isValid) {
+        if (user) {
             localStorage.setItem('loggedIn', true); // Set the login status in localStorage
-            localStorage.setItem('username', username); // Store the username in localStorage
+            localStorage.setItem('username', user.user); // Store the username
             window.location.href = 'index.html'; // Redirect to index.html on successful login
         } else {
             errorMessage.textContent = 'Invalid username or password';
