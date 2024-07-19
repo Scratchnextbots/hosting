@@ -80,6 +80,11 @@
     <audio id="myAudio" src="https://github.com/Scratchnextbots/hosting/blob/1e3138be288eaef4061f9464a161cfb69610ebdd/tu-sonido.mp3?raw=true" preload="auto"></audio>
 
     <script>
+        // Check if the user is logged in
+        if (!localStorage.getItem('loggedIn')) {
+            window.location.href = 'Login.html';
+        }
+
         var audioPlayed = false;
 
         document.body.addEventListener('click', function() {
