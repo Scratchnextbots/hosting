@@ -63,6 +63,60 @@
         cursor: pointer;
         margin-top: 20px;
     }
+
+    .profile-menu {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        display: flex;
+        align-items: center;
+    }
+
+    .profile-pic {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: #ddd;
+        background-image: url('https://via.placeholder.com/40'); /* Imagen de perfil aleatoria */
+        background-size: cover;
+        cursor: pointer;
+        position: relative;
+    }
+
+    .menu {
+        display: none;
+        position: absolute;
+        top: 50px;
+        right: 0;
+        width: 200px;
+        background: white;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        z-index: 2;
+    }
+
+    .menu.active {
+        display: block;
+    }
+
+    .menu-item {
+        padding: 10px;
+        border-bottom: 1px solid #ddd;
+        cursor: pointer;
+    }
+
+    .menu-item:last-child {
+        border-bottom: none;
+    }
+
+    .menu-item:hover {
+        background: #f0f0f0;
+    }
+
+    .logout {
+        color: red;
+    }
 </style>
 </head>
 <body>
@@ -76,7 +130,16 @@
         <a href="CONTACT.html">Contact -</a>
         <a href="GAL.html">Gallery</a>
     </div>
-    
+
+    <div class="profile-menu">
+        <div class="profile-pic" onclick="toggleMenu()"></div>
+        <div class="menu" id="profileMenu">
+            <div class="menu-item">Name: John Doe</div>
+            <div class="menu-item">Description: Web Developer</div>
+            <div class="menu-item logout" onclick="logout()">Logout</div>
+        </div>
+    </div>
+
     <audio id="myAudio" src="https://github.com/Scratchnextbots/hosting/blob/1e3138be288eaef4061f9464a161cfb69610ebdd/tu-sonido.mp3?raw=true" preload="auto"></audio>
 
     <script>
@@ -92,6 +155,24 @@
                 var audio = document.getElementById("myAudio");
                 audio.play();
                 audioPlayed = true;
+            }
+        });
+
+        function toggleMenu() {
+            const menu = document.getElementById('profileMenu');
+            menu.classList.toggle('active');
+        }
+
+        function logout() {
+            localStorage.removeItem('loggedIn');
+            window.location.href = 'Login.html';
+        }
+
+        document.addEventListener('click', function(event) {
+            const menu = document.getElementById('profileMenu');
+            const profilePic = document.querySelector('.profile-pic');
+            if (!profilePic.contains(event.target) && !menu.contains(event.target)) {
+                menu.classList.remove('active');
             }
         });
     </script>
