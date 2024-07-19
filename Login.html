@@ -7,19 +7,31 @@
     <style>
         body {
             font-family: 'Arial', sans-serif;
-            background: linear-gradient(to right, #ff7e5f, #feb47b);
+            background: url('https://i.pinimg.com/736x/02/83/cd/0283cddf262491de5ddc2077b2e43e35.jpg') no-repeat center center fixed;
+            background-size: cover;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
             margin: 0;
         }
+        .background-blur {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: inherit;
+            filter: blur(8px);
+            z-index: -1;
+        }
         .login-container {
-            background: white;
+            background: rgba(255, 255, 255, 0.8);
             padding: 2em;
             border-radius: 10px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             text-align: center;
+            z-index: 1;
         }
         .login-container h1 {
             margin-bottom: 1em;
@@ -51,6 +63,8 @@
     </style>
 </head>
 <body>
+
+<div class="background-blur"></div>
 
 <div class="login-container">
     <h1>Iniciar Sesión</h1>
