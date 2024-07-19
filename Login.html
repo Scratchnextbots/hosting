@@ -93,6 +93,7 @@
         const isValid = validCredentials.some(cred => cred.user === username && cred.pass === password);
 
         if (isValid) {
+            localStorage.setItem('loggedIn', true); // Set the login status in localStorage
             window.location.href = 'index.html'; // Redirect to index.html on successful login
         } else {
             errorMessage.textContent = 'Invalid username or password';
