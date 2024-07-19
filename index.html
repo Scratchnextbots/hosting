@@ -134,7 +134,7 @@
     <div class="profile-menu">
         <div class="profile-pic" onclick="toggleMenu()"></div>
         <div class="menu" id="profileMenu">
-            <div class="menu-item" id="usernameDisplay">Name: Guest</div>
+            <div class="menu-item" id="usernameDisplay"></div>
             <div class="menu-item">Description: Web Developer</div>
             <div class="menu-item logout" onclick="logout()">Logout</div>
         </div>
@@ -147,17 +147,5 @@
         if (!localStorage.getItem('loggedIn')) {
             window.location.href = 'Login.html';
         } else {
-            // Display the username
             const username = localStorage.getItem('username');
-            document.getElementById('usernameDisplay').textContent = `Name: ${username}`;
-        }
-
-        var audioPlayed = false;
-
-        document.body.addEventListener('click', function() {
-            if (!audioPlayed) {
-                var audio = document.getElementById("myAudio");
-                audio.play();
-                audioPlayed = true;
-            }
-        });
+            document.getElementById('usernameDisplay').textContent = `Name: ${
