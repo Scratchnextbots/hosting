@@ -1,3 +1,4 @@
+ent = `Name: ${
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -134,8 +135,8 @@
     <div class="profile-menu">
         <div class="profile-pic" onclick="toggleMenu()"></div>
         <div class="menu" id="profileMenu">
-            <div class="menu-item" id="usernameDisplay"></div>
-            <div class="menu-item">Description: Web Developer</div>
+            <div class="menu-item" id="userName">Name: </div>
+            <div class="menu-item" id="userDescription">Description: </div>
             <div class="menu-item logout" onclick="logout()">Logout</div>
         </div>
     </div>
@@ -147,5 +148,5 @@
         if (!localStorage.getItem('loggedIn')) {
             window.location.href = 'Login.html';
         } else {
-            const username = localStorage.getItem('username');
-            document.getElementById('usernameDisplay').textContent = `Name: ${
+            // Retrieve and display user information
+            document.getElementById('userName').textContent = `Name: ${local
