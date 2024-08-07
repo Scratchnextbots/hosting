@@ -1,9 +1,10 @@
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login 🔐</title>
+    <link rel="icon" href="https://icons.veryicon.com/png/o/internet--web/flatten-icon/lock-63.png" type="image/png">
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -14,6 +15,7 @@
             align-items: center;
             height: 100vh;
             margin: 0;
+            position: relative;
         }
         .background-blur {
             position: absolute;
@@ -60,9 +62,49 @@
             color: red;
             margin-top: 1em;
         }
+        .info-icon {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+        }
+        .info-overlay {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 300px;
+            padding: 1em;
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            z-index: 2;
+        }
+        .info-overlay.active {
+            display: block;
+        }
+        .info-overlay button {
+            margin-top: 1em;
+            padding: 0.5em 1em;
+            border: none;
+            border-radius: 5px;
+            background: #ff7e5f;
+            color: white;
+            cursor: pointer;
+        }
+        .info-overlay button:hover {
+            background: #feb47b;
+        }
     </style>
 </head>
 <body>
+
+<img src="https://upload.wikimedia.org/wikipedia/en/3/35/Information_icon.svg" alt="Info Icon" class="info-icon" onclick="toggleInfo()">
 
 <div class="background-blur"></div>
 
@@ -76,6 +118,11 @@
     </form>
 </div>
 
+<div class="info-overlay" id="infoOverlay">
+    <p>If you don't have an account or you aren't a worker, try this: Username: Guest, Password: ' ' <--- space on your keyboard</p>
+    <button onclick="toggleInfo()">Close</button>
+</div>
+
 <script>
     function validateLogin(event) {
         event.preventDefault();
@@ -85,10 +132,9 @@
 
         // Predefined users and passwords
         const validCredentials = [
-            { user: 'anuarios12', pass: 'Anuarsito123', name: 'Anuar Ospino 👹', description: 'gallery Developer ' },
-            { user: 'Bootleg_user000', pass: 'WinCym32.exe', name: 'Mike Smith Johnson', description: 'Web Devoloper' },
-            { user: 'Guest', pass: ' ', name: 'Guest', description: 'Guest or tester developer' },
-            // Add more users and passwords here
+            { user: 'anuarios12', pass: 'Anuarsito123', name: 'Anuar Ospino 👹', description: 'gallery Developer ', pic: 'https://i.pinimg.com/736x/ac/65/36/ac65366894e4cc2d715d4165238a1efa.jpg' },
+            { user: 'Bootleg_user000', pass: 'WinCym32.exe', name: 'Mike Smith Johnson', description: 'Web Developer', pic: 'https://lh3.googleusercontent.com/a/ACg8ocJTqrLsXlslYGQ1S4vicCoBMWBgfrWMuQzFTcw9V4FseoYa6SWU=s360-c-no' },
+            { user: 'Guest', pass: ' ', name: 'Guest', description: 'Guest or tester developer', pic: 'https://via.placeholder.com/40' },
         ];
 
         const user = validCredentials.find(cred => cred.user === username && cred.pass === password);
@@ -98,10 +144,18 @@
             localStorage.setItem('username', user.user); // Save the username
             localStorage.setItem('name', user.name); // Save the name
             localStorage.setItem('description', user.description); // Save the description
-            window.location.href = 'index.html'; // Redirect to index.html on successful login
+            localStorage.setItem('profilePic', user.pic); // Save the profile picture URL
+            setTimeout(() => {
+                window.location.href = 'index.html'; // Redirect to index.html after 3 seconds
+            }, 3000);
         } else {
             errorMessage.textContent = 'Invalid username or password';
         }
+    }
+
+    function toggleInfo() {
+        const infoOverlay = document.getElementById('infoOverlay');
+        infoOverlay.classList.toggle('active');
     }
 </script>
 
