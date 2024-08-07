@@ -1,122 +1,107 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Moxeration Website</title>
-<link rel="icon" href="https://i.pinimg.com/736x/1c/4c/b4/1c4cb46bf429044e2cb6a51e650f85ca.jpg" type="image/png">
-<style>
-    body {
-        background-image: url('https://c4.wallpaperflare.com/wallpaper/765/406/516/landscape-4k-bliss-windows-xp-wallpaper-preview.jpg');
-        background-size: cover;
-        background-position: center;
-        margin: 0;
-        font-family: Arial, sans-serif;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        overflow: hidden;
-        position: relative;
-    }
-
-    .overlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(255, 255, 255, 0.5);
-        backdrop-filter: blur(10px);
-    }
-
-    .header {
-        position: relative;
-        z-index: 1;
-        text-align: center;
-        color: #333;
-        padding: 20px;
-    }
-
-    .container {
-        z-index: 1;
-        text-align: center;
-        margin-top: 20px;
-    }
-
-    .container a {
-        text-decoration: none;
-        color: #333;
-        margin: 0 10px;
-    }
-
-    .container a:hover {
-        color: #666;
-    }
-
-    .play-button {
-        background-color: #ccc;
-        padding: 10px 20px;
-        border-radius: 5px;
-        cursor: pointer;
-        margin-top: 20px;
-    }
-
-    .profile-menu {
-        position: absolute;
-        top: 10px;
-        right: 10px;
-        display: flex;
-        align-items: center;
-    }
-
-    .profile-pic {
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        background-color: #ddd;
-        background-image: url('https://via.placeholder.com/40'); /* Cambiar por la foto del perfil */
-        background-size: cover;
-        cursor: pointer;
-        position: relative;
-    }
-
-    .menu {
-        display: none;
-        position: absolute;
-        top: 50px;
-        right: 0;
-        width: 200px;
-        background: white;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        z-index: 2;
-    }
-
-    .menu.active {
-        display: block;
-    }
-
-    .menu-item {
-        padding: 10px;
-        border-bottom: 1px solid #ddd;
-        cursor: pointer;
-    }
-
-    .menu-item:last-child {
-        border-bottom: none;
-    }
-
-    .menu-item:hover {
-        background: #f0f0f0;
-    }
-
-    .logout {
-        color: red;
-    }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moxeration Website</title>
+    <link rel="icon" href="https://seeklogo.com/images/W/windows-xp-icon-logo-E8F84DD6F3-seeklogo.com.png" type="image/png">
+    <style>
+        body {
+            background-image: url('https://c4.wallpaperflare.com/wallpaper/765/406/516/landscape-4k-bliss-windows-xp-wallpaper-preview.jpg');
+            background-size: cover;
+            background-position: center;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+            position: relative;
+        }
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(10px);
+        }
+        .header {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            color: #333;
+            padding: 20px;
+        }
+        .container {
+            z-index: 1;
+            text-align: center;
+            margin-top: 20px;
+        }
+        .container a {
+            text-decoration: none;
+            color: #333;
+            margin: 0 10px;
+        }
+        .container a:hover {
+            color: #666;
+        }
+        .play-button {
+            background-color: #ccc;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        .profile-menu {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            display: flex;
+            align-items: center;
+        }
+        .profile-pic {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #ddd;
+            background-size: cover;
+            cursor: pointer;
+            position: relative;
+        }
+        .menu {
+            display: none;
+            position: absolute;
+            top: 50px;
+            right: 0;
+            width: 200px;
+            background: white;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            z-index: 2;
+        }
+        .menu.active {
+            display: block;
+        }
+        .menu-item {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+            cursor: pointer;
+        }
+        .menu-item:last-child {
+            border-bottom: none;
+        }
+        .menu-item:hover {
+            background: #f0f0f0;
+        }
+        .logout {
+            color: red;
+        }
+    </style>
 </head>
 <body>
     <div class="overlay"></div>
@@ -128,8 +113,7 @@
         <a href="INFORMATION.html">Info -</a>
         <a href="CONTACT.html">Contact -</a>
         <a href="GAL.html">Gallery -</a>
-        <a href="DABA.html">Database</a>
-            
+        <a href="DABA.html">Database -</a>
     </div>
 
     <div class="profile-menu">
@@ -151,6 +135,17 @@
             // Retrieve and display user information
             document.getElementById('userName').textContent = `Name: ${localStorage.getItem('name')}`;
             document.getElementById('userDescription').textContent = `Description: ${localStorage.getItem('description')}`;
+            
+            // Set profile picture based on user
+            const profilePic = document.querySelector('.profile-pic');
+            const username = localStorage.getItem('username');
+            
+            // Set profile picture URL based on username
+            if (username === 'anuarios12') {
+                profilePic.style.backgroundImage = "url('https://i.pinimg.com/736x/ac/65/36/ac65366894e4cc2d715d4165238a1efa.jpg')";
+            } else {
+                profilePic.style.backgroundImage = "url('https://via.placeholder.com/40')";
+            }
         }
 
         function toggleMenu() {
@@ -167,6 +162,7 @@
             localStorage.removeItem('username');
             localStorage.removeItem('name');
             localStorage.removeItem('description');
+            localStorage.removeItem('profilePic');
             window.location.href = 'Login.html'; // Redirect to login page
         }
 
